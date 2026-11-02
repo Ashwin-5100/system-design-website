@@ -49,7 +49,7 @@ export function LessonBody({ lesson }: { lesson: Topic }) {
             {/* Diagrams are wide local PNGs; the browser should show them at full width. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={umlBySlug[lesson.slug]}
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${umlBySlug[lesson.slug]}`}
               alt={`UML class diagram for ${lesson.title}`}
               className="w-full rounded-xl border border-[var(--border)] bg-white"
             />

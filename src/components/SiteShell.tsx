@@ -8,7 +8,7 @@ import { lessons, parts } from "@/lib/curriculum";
 const allPartIds = parts.map((part) => part.id);
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
+  const pathname = usePathname().replace(/\/$/, "") || "/";
   const activeSlug = pathname.startsWith("/learn/")
     ? decodeURIComponent(pathname.slice("/learn/".length))
     : undefined;

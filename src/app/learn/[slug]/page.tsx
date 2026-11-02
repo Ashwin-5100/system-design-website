@@ -8,6 +8,8 @@ export function generateStaticParams() {
   return lessons.map((lesson) => ({ slug: lesson.slug }));
 }
 
+export const dynamicParams = false;
+
 export default async function LessonPage({
   params,
 }: {
