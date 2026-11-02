@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { caseCount, lessonCount } from "@/lib/curriculum";
 
 export default function Home() {
   return (
@@ -9,37 +10,37 @@ export default function Home() {
           Open course →
         </Link>
       </header>
-      <main className="mx-auto flex flex-1 w-full max-w-5xl flex-col justify-center px-6 pb-20">
+      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center px-6 pb-20">
         <p className="mb-4 text-sm font-medium uppercase tracking-widest text-[var(--accent)]">
           System design interview prep
         </p>
         <h1 className="max-w-2xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-          Learn scalable systems with a clear roadmap — not memorized diagrams.
+          Every core topic from the Grokking syllabus and the awesome system design list.
         </h1>
         <p className="mt-6 max-w-xl text-lg leading-8 text-[var(--muted)]">
-          Fundamentals, building blocks, and worked case studies. Built from open curricula
-          (Educative-style depth, AlgoMaster trade-offs) — original lessons only.
+          Fundamentals, building blocks, trade-offs, classic papers, and end-to-end design
+          problems — written as original lessons you can practice out loud.
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
           <Link
-            href="/learn/what-is-system-design"
+            href="/learn/introduction-to-modern-system-design"
             className="rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-[#0f1419] hover:opacity-90"
           >
-            Start lesson 1
+            Start at the beginning
           </Link>
           <Link
             href="/learn"
             className="rounded-full border border-[var(--border)] px-6 py-3 text-sm font-medium hover:bg-[var(--surface)]"
           >
-            View roadmap
+            Browse all topics
           </Link>
         </div>
         <dl className="mt-16 grid grid-cols-2 gap-6 sm:grid-cols-4">
           {[
-            ["4", "Starter lessons"],
-            ["1", "Full case study"],
-            ["45m", "Mock framework"],
-            ["Local", "Run & verify first"],
+            [String(lessonCount), "Topics"],
+            [String(caseCount), "Design problems"],
+            ["14", "Course sections"],
+            ["45m", "Practice timer target"],
           ].map(([value, label]) => (
             <div key={label} className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4">
               <dt className="text-2xl font-semibold text-[var(--accent)]">{value}</dt>
